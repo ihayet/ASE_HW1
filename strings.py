@@ -1,38 +1,55 @@
 from collections import OrderedDict
 
 def fmt(sControl, *args):
+    ret = ''
     i, x, counter = 0, 0, 0
     rangeArr = range(len(sControl))
     
-    while x < len(sControl):
+    while x < len(sControl) - 1:
         i = rangeArr[x]
         i2 = rangeArr[x+1]
 
         if sControl[i] == '%':
             if sControl[i2] == 'o':
-                print(oct(args[counter]), end='')
+                ret += str(oct(args[counter]))
                 x += 1
             elif sControl[i2] == 'x':
-                print(hex(args[counter]), end='')
+                ret += str(hex(args[counter]))
                 x += 1
             elif sControl[i2] == 'X':
-                print(hex(args[counter]).upper(), end='')
+                ret += str(hex(args[counter]).upper())
                 x += 1
             else:
-                print(args[counter], end='')
+                ret += str(args[counter])
                 x += 1
 
             counter += 1
         else:
-            print(sControl[i], end='')
+            ret += str(sControl[i])
 
         x += 1
+    
+    if x < len(sControl):
+        ret += sControl[rangeArr[x]]
 
-def oo():
-    pass
+    return ret
 
-def o(t):
-    pass
+def oo(options):
+    val = o(options)
+    return val
+
+def o(options):
+    val = '{'
+    for i, k in enumerate(options):
+        val += ':'
+        val += str(k)
+        val += ' ' + str(options[k]).lower()
+
+        if i < len(options)-1:
+            val += ' '
+    val += '}'
+
+    return val
 
 def coerce(s):
     def fun(s1):
