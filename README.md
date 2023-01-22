@@ -6,6 +6,8 @@
 <img src="https://img.shields.io/badge/language-python-green"> 
 <img src="https://img.shields.io/badge/purpose-learning-orange"> 
 </p>
+
+[![PURPOSE](https://img.shields.io/badge/purpose-learning-orange)](https://img.shields.io/badge/purpose-learning-orange)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7559341.svg)](https://doi.org/10.5281/zenodo.7559341)
  
 # ASE_HW1
