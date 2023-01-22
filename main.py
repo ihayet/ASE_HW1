@@ -43,7 +43,18 @@ def cli(options):
             options[k] = coerce(options[k])
     return options
 
+egs = {}
+def eg(key, str, fun):
+    global help
+    egs[key] = fun
+    help = help + fmt(" -g %s\t%s\n", key, str)
+
 def main(options, help, funs):
+    eg("the","show settings", settings_test)
+    eg("rand","generate, reset, regenerate same", rand_test)
+    eg("sym","check syms", sym_test)
+    eg("num", "check nums", num_test)
+
     err = 0
     options = cli(settings(help))
     saved = OrderedDict()
@@ -62,16 +73,6 @@ def main(options, help, funs):
                     print("❌ fail:", fun_key) 
                 else:
                     print("✅ pass:", fun_key)
+    return err
 
-egs = {}
-def eg(key, str, fun):
-    global help
-    egs[key] = fun
-    help = help + fmt(" -g %s\t%s\n", key, str)
-
-eg("the","show settings", settings_test)
-eg("rand","generate, reset, regenerate same", rand_test)
-eg("sym","check syms", sym_test)
-eg("num", "check nums", num_test)
-
-main(getThe(), help, egs)
+err = main(getThe(), help, egs)
