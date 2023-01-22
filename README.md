@@ -5,8 +5,8 @@
 </a> 
 <img src="https://img.shields.io/badge/language-python-green"> 
 <img src="https://img.shields.io/badge/purpose-learning-orange"> 
-<a href="https://doi.org/10.5281/zenodo.7559341">
-  <img href="https://zenodo.org/badge/DOI/10.5281/zenodo.7559341.svg">
+<a href="https://zenodo.org/badge/latestdoi/7559341">
+  <img href="https://zenodo.org/badge/zenodo.7559341.svg">
 </a>
 </p>
  
