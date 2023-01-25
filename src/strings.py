@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from utils import get_ofile
 
 def fmt(sControl, *args):
     ret = ''
@@ -36,6 +37,9 @@ def fmt(sControl, *args):
 
 def oo(options):
     val = o(options)
+    o_file = get_ofile()
+    o_file.write(str(val) + '\n')
+    print(val)
     return val
 
 def o(options):

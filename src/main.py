@@ -3,7 +3,7 @@ import re
 import sys
 import os
 from strings import fmt, coerce
-from utils import getThe, setThe, setSeed
+from utils import getThe, setThe, setSeed, get_ofile
 from test import settings_test, rand_test, sym_test, num_test
 
 help = 'script.lua : an example script with help text and a test suite\n (c)2022, Tim Menzies <timm@ieee.org>, BSD-2\n USAGE:   script.lua  [OPTIONS] [-g ACTION] \n OPTIONS: \n -d  --dump  on crash, dump stack = false \n -g  --go    start-up action      = data \n -h  --help  show help            = false \n -s  --seed  random number seed   = 937162211 \n ACTIONS:\n'
@@ -55,7 +55,7 @@ def main(options, help, funs):
     eg("sym","check syms", sym_test)
     eg("num", "check nums", num_test)
 
-    #o_file = open('../etc/out', 'w', encoding='utf-8')
+    o_file = get_ofile()
     err = 0
     options = cli(settings(help))
     saved = OrderedDict()
@@ -72,13 +72,14 @@ def main(options, help, funs):
                 if funs[fun_key]() > 0:
                     err += funs[fun_key]()
                     print("❌ fail:", fun_key) 
-                    #o_file.write("❌ fail: " + str(fun_key) + "\n")
+                    o_file.write("❌ fail: " + str(fun_key) + "\n")
                 else:
                     print("✅ pass:", fun_key)
-                    #o_file.write("✅ pass: " + str(fun_key) + "\n")
+                    o_file.write("✅ pass: " + str(fun_key) + "\n")
         
-        #o_file.close()
+        o_file.close()
 
     return err
 
 err = main(getThe(), help, egs)
+exit(err)

@@ -1,6 +1,7 @@
 import math
 
 the = {}
+o_file = None
 
 Seed=937162211
 def rint(lo, hi):
@@ -25,3 +26,10 @@ def getThe():
 def setThe(options):
   global the
   the = options
+
+def get_ofile():
+  global o_file
+  if o_file is None:
+    o_file = open('../etc/out', 'w', encoding='utf-8')
+    
+  return o_file
