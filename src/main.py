@@ -82,4 +82,5 @@ def main(options, help, funs):
     return err
 
 err = main(getThe(), help, egs)
+print(err)
 exit(err)
