@@ -55,7 +55,7 @@ def main(options, help, funs):
     eg("sym","check syms", sym_test)
     eg("num", "check nums", num_test)
 
-    o_file = open('../etc/out', 'w', encoding='utf-8')
+    #o_file = open('../etc/out', 'w', encoding='utf-8')
     err = 0
     options = cli(settings(help))
     saved = OrderedDict()
@@ -72,13 +72,13 @@ def main(options, help, funs):
                 if funs[fun_key]() > 0:
                     err += funs[fun_key]()
                     print("❌ fail:", fun_key) 
-                    o_file.write("❌ fail: " + str(fun_key) + "\n")
+                    #o_file.write("❌ fail: " + str(fun_key) + "\n")
                 else:
                     print("✅ pass:", fun_key)
-                    o_file.write("✅ pass: " + str(fun_key) + "\n")
+                    #o_file.write("✅ pass: " + str(fun_key) + "\n")
         
-        o_file.close()
-        
+        #o_file.close()
+
     return err
 
 err = main(getThe(), help, egs)
