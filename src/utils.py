@@ -30,6 +30,6 @@ def setThe(options):
 def get_ofile():
   global o_file
   if o_file is None:
-    o_file = open('../etc/out', 'w', encoding='utf-8')
+    o_file = open('etc/out', 'w', encoding='utf-8')
     
   return o_file
